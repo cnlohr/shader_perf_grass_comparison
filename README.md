@@ -8,11 +8,13 @@ Things I learned.
 
 1) The naïve vertex approach is **slower** than geometry shaders.  Not by much.
 
-4 M Blades of grass with **vertex shader**: ~16ms.  (Mesh In->Mesh Out) (the worst)
-4 M Blades of grass with **geometry shader**: ~13ms.  (Points In->Mesh Out)
---- not suitable for @Xiexe#0001 --- 
-4 M Blades of grass with **instanced geometry shader**: ~13ms.  (Points In->Mesh Out)
-4 M Blades of grass with mixed **tessellation shader** / instanced geo: ~13ms.  (Points In->Mesh Out)
+* 4 M Blades of grass with **vertex shader**: ~16ms.  (Mesh In->Mesh Out) (the worst)
+* 4 M Blades of grass with **geometry shader**: ~13ms.  (Points In->Mesh Out)
+
+--- not suitable for grass, but fun to test ---
+
+* 4 M Blades of grass with **instanced geometry shader**: ~13ms.  (Points In->Mesh Out)
+* 4 M Blades of grass with mixed **tessellation shader** / instanced geo: ~13ms.  (Points In->Mesh Out)
 
 (Profiling done with my underclocked 3090 (running at 210MHz (as underclocked as I can get it)) 
 
