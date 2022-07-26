@@ -140,4 +140,29 @@ public class GeneratePoints : MonoBehaviour
 		AssetDatabase.CreateAsset(mesh, "Assets/fewpts.asset");
     }
 
+	[MenuItem("MyMenu/GenerateOnePoint")]
+    static void GenerateOnePoint()
+    {
+		const int ptx = 1;
+		const int pty = 1;
+		
+		Mesh mesh = new Mesh();
+		mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+		int[] indices = new int[ptx*pty];
+		Vector3[] verts = new Vector3[ptx*pty];
+		int x, y;
+		for( y = 0; y < pty; y++ )
+		{
+			for( x = 0; x < ptx; x++ )
+			{
+				verts[x+y*ptx] = new Vector3( x/10.0f, x+y*ptx, y/10.0f );
+				indices[x+y*ptx] = x+y*ptx;
+			}
+		}
+		
+		mesh.vertices = verts;
+		mesh.SetIndices(indices, MeshTopology.Points, 0, false, 0);
+		AssetDatabase.CreateAsset(mesh, "Assets/onept.asset");
+    }
+
 }

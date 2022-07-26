@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PointsViaGeo
-  m_Shader: {fileID: 4800000, guid: 26cd08d961fedfb4d9ef816b94503abb, type: 3}
+  m_Name: TriViaTessLoDAbort
+  m_Shader: {fileID: 4800000, guid: 0ee3bfd2e58732e448f3df1d3d16e47f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

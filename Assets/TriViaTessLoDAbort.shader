@@ -1,4 +1,4 @@
-﻿Shader "Unlit/TriViaTess"
+﻿Shader "Unlit/TriViaTessLoDAbort"
 {
     Properties
     {
@@ -53,8 +53,8 @@
 			// Divx can be no more than 63x63 divisions
 			// 63*63 => Will get us 3,969 iterations. 
 			// 32*32 => Will get us 1,024 iterations. << We choose this for convenience.
-			#define TESS_DIVX 32
-			#define TESS_DIVY 32
+			#define TESS_DIVX 4
+			#define TESS_DIVY 8
 
 			struct tessFactors
 			{
@@ -103,15 +103,15 @@
 			}
 
 			[maxvertexcount(8)]
-			[instance(32)]
 			void geo (point vtx pts[1], inout TriangleStream<g2f> triStream,
 				uint instanceID : SV_GSInstanceID )
 			{
 				const float bladethick = 4.0;
-				//float3 rootxyz = pts[0].vertex.xyz;
+				float3 rootxyzin = pts[0].vertex.xyz;
 				uint4 bid = pts[0].batchID;
-				float3 rootxyz = float3( bid.y, 0.0, bid.z ) * 0.1 +
-					float3( bid.w, 0.0, instanceID )*3.2;
+				float3 rootxyz = rootxyzin + float3( 0, 0, bid.y*8+bid.z )* 6.4;
+					//float3( bid.y, 0.0, bid.z ) * 0.1 +
+					//float3( bid.w, 0.0, instanceID )*3.2;
 				const float3 swaymid0 = float3( 0.150, 0.333, 0.150 );
 				const float3 swaymid1 = float3( 0.50, 0.666, 0.50 );
 				const float3 swaymid2 = float3( 1.0, 1.0, 1.0 );
