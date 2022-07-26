@@ -3,10 +3,7 @@ Fake test for checking perf of different shader types.
 
 Deliberately obtuse data to see how video cards process different video render pipeline stuff.
 
-Things I learned.
-
-
-1) The naïve vertex approach is **slower** than geometry shaders.  Not by much.
+Things I learned: The naïve vertex-only approach is **slower** than geometry shaders.  Not by much.
 
 * 4 M Blades of grass with **vertex shader**: ~16ms.  (Mesh In->Mesh Out) (the worst)
 * 4 M Blades of grass with **geometry shader**: ~13ms.  (Points In->Mesh Out)
