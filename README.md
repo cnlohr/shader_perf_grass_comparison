@@ -20,7 +20,7 @@ Things I learned.
 
 I also now understand why someone would want to use tessellation or compute shaders in this case.  It makes it reasonable to do LoD culling, and emit less grass.  Whereas geometry shaders would be helplessly inefficient at that.
 
-64 M Blades of grass with all but 4M culled with **geometry shader**: ~45ms.  (Points In->Mesh Out)
+* 64 M Blades of grass with all but 4M culled with **geometry shader**: ~45ms.  (Points In->Mesh Out)
 
 tl;dr:
 geometry shaders seem fine, as expected, don't use them for heavy LoD.
